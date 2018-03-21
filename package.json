@@ -1,0 +1,26 @@
+{
+  "name": "proxly",
+  "version": "0.0.1",
+  "description": "Easiest way to create a single proxy to a list of functions or objects",
+  "main": "index.js",
+  "jsnext:main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pshihn/proxly.git"
+  },
+  "keywords": [
+    "javascript",
+    "proxy",
+    "delegator",
+    "alias"
+  ],
+  "author": "Preet Shihn <preetshihn@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pshihn/proxly/issues"
+  },
+  "homepage": "https://github.com/pshihn/proxly#readme"
+}
