@@ -2,9 +2,14 @@
   "name": "proxly",
   "version": "0.0.1",
   "description": "Easiest way to create a single proxy to a list of functions or objects",
-  "main": "index.js",
+  "main": "dist/proxly.umd.js",
   "jsnext:main": "index.js",
   "scripts": {
+    "build": "npm run build-d && npm run build-umd",
+    "build-d": "rollup index.js --o dist/proxly.js --f iife --name \"proxly\" && npm run minify-d",
+    "minify-d": "babel-minify dist/proxly.js -o dist/proxly.min.js --mangle",
+    "build-umd": "rollup index.js --o dist/proxly.umd.js --f umd --name \"proxly\" && npm run minify-umd",
+    "minify-umd": "babel-minify dist/proxly.umd.js -o dist/proxly.umd.min.js --mangle",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +27,9 @@
   "bugs": {
     "url": "https://github.com/pshihn/proxly/issues"
   },
-  "homepage": "https://github.com/pshihn/proxly#readme"
+  "homepage": "https://github.com/pshihn/proxly#readme",
+  "devDependencies": {
+    "babel-minify": "^0.3.0",
+    "rollup": "^0.57.1"
+  }
 }
