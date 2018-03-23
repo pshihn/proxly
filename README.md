@@ -8,7 +8,7 @@
 * Works with Arrays
 * Supports callbacks as arguments
 * Excellent with async/await
-* Tiny in size. **Only _447 bytes_ gzipped**
+* Tiny in size. **Only _437 bytes_ gzipped**
 
 ## Install
 Download the latest from [dist folder](https://github.com/pshihn/proxly/tree/master/dist)<br>
