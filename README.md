@@ -17,7 +17,7 @@ npm install --save proxly
 ```
 
 ## Usage/Examples
-#### Proxy functions
+#### Proxy Functions
 ```javascript
 function add(a, b) { return a + b; }
 function subtract(a, b) { return a - b; }
@@ -29,7 +29,7 @@ async function multiply(a, b) { return a * b; }
   console.log(result); // [6, 2, 8]
 })();
 ```
-#### Proxy objects
+#### Proxy Objects
 Objects could be instances of the same class or just any two objects with a common interface.
 ```javascript
 class Operation {
@@ -52,6 +52,21 @@ let subtractor = new Operation('subtract');
   console.log(await proxy.count); // [0, 0]
   console.log(await proxy.run(10, 4)); // [14, 6]
   console.log(await proxy.count); // [1, 1]
+})();
+```
+#### Proxy Arrays
+Of course it works with arrays
+```javascript
+let fruits = ["apple", "banana", "grape"];
+let colors = ["red", "yellow", "green"];
+(async () => {
+  let proxy = proxly(fruits, colors);
+  console.log(await proxy[1]); // ["banana", "yellow"]
+  console.log(await proxy.length); // [3, 3]
+  proxy.push('orange');
+  console.log(await proxy.length); // [4, 4]
+  console.log(fruits); // ["apple", "banana", "grape", "orange"]
+  console.log(colors); // ["red", "yellow", "green", "orange"]
 })();
 ```
 
