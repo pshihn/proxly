@@ -22,7 +22,7 @@
 
     (async () => {
       // proxy for both worker functions
-      let proxy = proxly(wAdd);
+      let proxy = proxly(wAdd, wSub);
       console.log(await proxy(4, 2));
     })();
 

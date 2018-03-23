@@ -58,7 +58,7 @@ class Proxly {
         let ref = reduce(o, this._path);
         let refParent = reduce(o, this._path.slice(0, -1));
         try {
-          ret.push(await ref.apply(refParent, args || []));
+          ret.push(await Reflect.apply(ref, refParent, args || []));
         } catch (err) {
           reject(err);
         }
