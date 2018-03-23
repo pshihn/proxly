@@ -5,7 +5,7 @@
 
 * Objects can be heterogeneous with a shared interface
 * Can proxy a set of functions (sync/async) to a single call
-* Proxy arrays to a single array.
+* Works with Arrays
 * Supports callbacks as arguments
 * Excellent with async/await
 * Tiny in size. **Only _447 bytes_ gzipped**
