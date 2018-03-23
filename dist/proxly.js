@@ -32,6 +32,7 @@ var proxly = (function () {
               ret.push(await Reflect.get(o, this._path[this._path.length - 1]));
             } catch (err) {
               reject(err);
+              return;
             }
           }
           resolve(ret.length === 1 ? ret[0] : ret);
@@ -48,8 +49,10 @@ var proxly = (function () {
             Reflect.set(o, prop, value);
           } catch (err) {
             reject(err);
+            return;
           }
         }
+        resolve(true);
       });
     }
 
@@ -64,6 +67,7 @@ var proxly = (function () {
             ret.push(await Reflect.apply(ref, refParent, args || []));
           } catch (err) {
             reject(err);
+            return;
           }
         }
         resolve(ret.length === 1 ? ret[0] : ret);
