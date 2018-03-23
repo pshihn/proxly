@@ -34,7 +34,7 @@ var proxly = (function () {
               reject(err);
             }
           }
-          resolve(ret.length ? (ret.length === 1 ? ret[0] : ret) : undefined);
+          resolve(ret.length === 1 ? ret[0] : ret);
         });
         return p.then.bind(p);
       }
@@ -66,7 +66,7 @@ var proxly = (function () {
             reject(err);
           }
         }
-        resolve(ret.length ? (ret.length === 1 ? ret[0] : ret) : undefined);
+        resolve(ret.length === 1 ? ret[0] : ret);
       });
     }
   }
