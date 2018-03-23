@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <title>Proxly Objects example</title>
+  <script src="../dist/proxly.min.js"></script>
+</head>
+
+<body>
+  <script>
+    class Operation {
+      constructor(name) {
+        this.name = name;
+        this.count = 0;
+      }
+      run(a, b) {
+        this.count++;
+        if (this.name === 'add') {
+          return a + b;
+        } else if (this.name === 'subtract') {
+          return a - b;
+        }
+      }
+      async delayedRun(a, b) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve(this.run(a, b));
+          }, 300);
+        });
+      }
+    }
+
+    let adder = new Operation('add');
+    let subtractor = new Operation('subtract');
+    let proxy = proxly(adder, subtractor);
+
+    (async () => {
+      console.log(await proxy.name); // ["add", "subtract"]
+      console.log(await proxy.count); // [0, 0]
+      console.log(await proxy.run(6, 4)); // [10, 2]
+      console.log(await proxy.delayedRun(8, 3)); // [11, 5]
+      console.log(await proxy.count); // [2, 2]
+    })();
+
+  </script>
+</body>
+
+</html>

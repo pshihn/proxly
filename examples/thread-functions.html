@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <title>Proxly Objects example</title>
+  <script src="https://rawgit.com/pshihn/workly/master/dist/workly.min.js"></script>
+  <script src="../dist/proxly.min.js"></script>
+</head>
+
+<body>
+  <script>
+    function add(a, b) {
+      return a + b;
+    }
+
+    function subtract(a, b) {
+      return a - b;
+    }
+
+    // push functions into a worker
+    let wAdd = workly.proxy(add);
+    let wSub = workly.proxy(subtract);
+
+    (async () => {
+      // proxy for both worker functions
+      let proxy = proxly(wAdd);
+      console.log(await proxy(4, 2));
+    })();
+
+  </script>
+</body>
+
+</html>

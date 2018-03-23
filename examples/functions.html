@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <title>Proxly Functions example</title>
+  <script src="../dist/proxly.min.js"></script>
+</head>
+
+<body>
+  <script>
+    function add(a, b) {
+      return a + b;
+    }
+
+    function subtract(a, b) {
+      return a - b;
+    }
+
+    function multiply(a, b) {
+      return a * b;
+    }
+
+
+
+    (async () => {
+      let proxy = proxly(add, subtract, multiply);
+      let result = await proxy(4, 2);
+      console.log(result); // [6, 2, 8]
+    })();
+
+  </script>
+</body>
+
+</html>
