@@ -7,7 +7,7 @@
 * Can proxy a set of functions (sync/async) to a single call
 * Supports callbacks as arguments
 * Excellent with async/await
-* Tiny in size. **Only 447bytes gzipped**
+* Tiny in size. ***Only _447 bytes_ gzipped**
 
 ## Install
 Download the latest from [dist folder](https://github.com/pshihn/proxly/tree/master/dist)<br>
