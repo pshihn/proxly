@@ -1,0 +1,24 @@
+<html>
+
+<head>
+  <title>Proxly Array Example</title>
+  <script src="../dist/proxly.min.js"></script>
+</head>
+
+<body>
+  <script>
+    let fruits = ["apple", "banana", "grape"];
+    let colors = ["red", "yellow", "green"];
+    (async () => {
+      let proxy = proxly(fruits, colors);
+      console.log(await proxy[1]); // ["banana", "yellow"]
+      console.log(await proxy.length); // [3, 3]
+      proxy.push('orange');
+      console.log(await proxy.length); // [4, 4]
+      console.log(fruits); // ["apple", "banana", "grape", "orange"]
+      console.log(colors); // ["red", "yellow", "green", "orange"]
+    })();
+  </script>
+</body>
+
+</html>

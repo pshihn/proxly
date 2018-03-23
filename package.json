@@ -1,6 +1,6 @@
 {
   "name": "proxly",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Easiest way to create a single proxy to a list of functions or objects",
   "main": "dist/proxly.umd.js",
   "jsnext:main": "index.js",
